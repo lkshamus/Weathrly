@@ -6,11 +6,7 @@ export default function sevenHour (props) {
       <div>
       {props.weather.map((forecast, index) => {
         return <Card forecast={forecast} key={index} />
-      })}
+      }).slice(0, 7)}
       </div>
     )
 }
-
-        props.questions.map((q, index) => {
-          return <Question question={q} key={index} />
-        }).slice(0, props.selectedQuestionCount)
