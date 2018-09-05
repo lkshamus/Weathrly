@@ -10,10 +10,10 @@ render() {
     return (
       <ul className='weather-card'>
       <li className='weather-description'>{this.props.weather.current_observation.display_location.city} </li>
-      <li className='weather-description'> 1:00pm </li>
-      <li className='weather-description'> Partly Cloudy </li>
-      <li className='weather-description'> 80°F </li>
-      <li className='weather-description'> NNE 5 mph</li>
+      <li className='weather-description'> {this.props.weather.hourly_forecast[0].FCTTIME.civil} </li>
+      <li className='weather-description'> {this.props.weather.hourly_forecast[0].condition} </li>
+      <li className='weather-description'> {this.props.weather.hourly_forecast[0].temp.english}°F </li>
+      <li className='weather-description'> {this.props.weather.hourly_forecast[0].wspd.english}mph</li>
       </ul>
     )
 
