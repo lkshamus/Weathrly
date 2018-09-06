@@ -22,6 +22,8 @@ export default class Card extends Component {
    let weatherData = this.props.weather.hourly_forecast
    let hourlyData = []
 
+   
+
    weatherData.map(data => {
     if ( (data.FCTTIME.hour >= currentHour) && data.FCTTIME.mday == currentDay ){
       hourlyData.push(data)

@@ -4,6 +4,7 @@ import './App.css';
 import { data } from './API.js';
 import SevenHourCard from './SevenHourCard.js';
 import CurrentWeatherCard from './CurrentWeatherCard';
+import TenDayCard from './TenDayCard';
 
 class App extends Component {
   constructor() {
@@ -22,6 +23,8 @@ class App extends Component {
        weather={this.state.weatherCards}
        selectedCardCount = {this.state.selectedCardCount}/>
        <CurrentWeatherCard 
+        weather={this.state.weatherCards} />
+       <TenDayCard
         weather={this.state.weatherCards} />
       </div>
       )
