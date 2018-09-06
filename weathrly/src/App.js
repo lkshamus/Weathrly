@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header.js';
 import './App.css';
 import { data } from './API.js'
-import Card from './Card.js'
+import SevenHourCard from './SevenHourCard.js'
 
 class App extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class App extends Component {
       return (
         <div className="App">
         <Header />
-       <Card 
+       <SevenHourCard 
        weather={this.state.weatherCards}
        selectedCardCount = {this.state.selectedCardCount}/>
       </div>

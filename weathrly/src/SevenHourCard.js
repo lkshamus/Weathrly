@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Card extends Component {
+export default class SevenHourCard extends Component {
 
   constructor() {
     super()
@@ -48,7 +48,7 @@ render() {
       </ul>
     ))
     }
-    return render_data
+    return render_data.slice(0, 7)
 
   }
 }
