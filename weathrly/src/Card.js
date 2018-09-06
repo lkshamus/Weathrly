@@ -23,7 +23,6 @@ export default class Card extends Component {
    let hourlyData = []
 
    weatherData.map(data => {
-    console.log(data)
     if ( (data.FCTTIME.hour >= currentHour) && data.FCTTIME.mday == currentDay ){
       hourlyData.push(data)
     }

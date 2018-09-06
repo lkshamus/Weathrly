@@ -9,12 +9,12 @@ export default class CurrentWeatherCard extends Card {
 
   getSimpleForecast() {
     let currHour = this.getCurrentHour()
-    let currDay = 21
+    let currDay = 20
     let currWeatherData = this.props.weather.forecast.simpleforecast.forecastday
     let currData = []
 
     currWeatherData.map(data => {
-      if( (data.date.hour == currHour) && data.date.day == currDay ) {
+      if(data.date.day == currDay) {
         currData.push(data)
       }
     })
@@ -34,16 +34,9 @@ export default class CurrentWeatherCard extends Card {
         <p className='current-condition'> {hourlyData[i].condition} 
           <img src={hourlyData[i].icon_url} alt='weather' />
         </p>
-        <p className='current-temp'> {hourlyData[i].temp.english}°F </p>
-        </div>
-        ))
-      }
-
-      for(let i=0; i < currData.length; i++) {
-        curr_data.push((
-        <div>
-        <p className='high'> {currData[i].high.fahrenheit}</p>
-        <p className='low'> {currData[i].low.fahrenheit} </p>
+        <p className='current-temp'>Current Temperature {hourlyData[i].temp.english}°F</p>
+        <p className='high'>High {currData[0].high.fahrenheit}°F</p>
+        <p className='low'>Low {currData[0].low.fahrenheit}°F </p>
         </div>
         ))
       }
