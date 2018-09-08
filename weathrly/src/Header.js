@@ -8,13 +8,14 @@ export default class Header extends Component {
 
 render() {
     return (
-      <div>
-      <h1>Weathrly
+      <div className='header'>
+      <h1 className='title'>Weathrly
+      <img src={"/public/thermometer.svg"} />
       </h1>
-      <form>
-        <input 
+      <form className='search-form'>
+        <input className='search-bar' 
           placeholder="Show me the weather in... city, zip, or place" />
-          <button>Find Me</button>
+          <button className='search-button'>Find Me</button>
       </form>
       </div>
     )

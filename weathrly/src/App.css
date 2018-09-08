@@ -1,5 +1,44 @@
+body{
+  background: url(https://source.unsplash.com/collection/334800/1600x900);
+  size: fixed;
+}
+
+h1 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+li {
+  color: white;
+}
+
 .App {
   text-align: center;
+}
+
+.title {
+  font-family: 'Calligraffitti', cursive;
+  justify-self: start;
+  font-weight: 800;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-bar {
+  justify-self: start;
+  width: 300px;
+  height: 30px;
+}
+
+.search-button {
+  align-self: start;
+  height: 37px;
+  width: 90px;
 }
 
 .weather-card {
@@ -13,24 +52,10 @@
   margin: 10px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+.header {
+  display: grid;
+  background-color: #29648A;
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
 }
 
 @keyframes App-logo-spin {
