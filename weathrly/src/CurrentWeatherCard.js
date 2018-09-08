@@ -9,7 +9,7 @@ export default class CurrentWeatherCard extends Card {
 
   getSimpleForecast() {
     let currHour = this.getCurrentHour()
-    let currDay = 20
+    let currDay = this.getCurrentDay()
     let currWeatherData = this.props.weather.forecast.simpleforecast.forecastday
     let currData = []
 
