@@ -19,12 +19,12 @@ class App extends Component {
       return (
         <div className="App">
         <Header />
+        <CurrentWeatherCard 
+        weather={this.state.weatherCards} />
        <SevenHourCard 
        weather={this.state.weatherCards}
        selectedCardCount = {this.state.selectedCardCount}/>
-       <CurrentWeatherCard 
-        weather={this.state.weatherCards} />
-       <TenDayCard
+       <TenDayCard 
         weather={this.state.weatherCards} />
       </div>
       )
