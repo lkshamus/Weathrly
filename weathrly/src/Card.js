@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import App from './App'
 
 export default class Card extends Component {
 
@@ -17,14 +18,16 @@ export default class Card extends Component {
   }
 
   getAPIData() {
+
    let currentHour = this.getCurrentHour()
-   let currentDay = 21
+   let currentDay = this.getCurrentDay()
    let weatherData = this.props.weather.hourly_forecast
    let hourlyData = []
-
-   
-
-   weatherData.map(data => {
+   console.log("weatherData: ", weatherData)
+   console.log("weatherData: ", weatherData.hourly_forecast)
+   Object.values(weatherData).map(data => {
+  
+  
     if ( (data.FCTTIME.hour >= currentHour) && data.FCTTIME.mday == currentDay ){
       hourlyData.push(data)
     }
