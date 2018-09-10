@@ -7,10 +7,7 @@ import CurrentWeatherCard from './CurrentWeatherCard';
 import TenDayCard from './TenDayCard';
 import apiConfig from './APIkey.js'
 
-let state = 'CA';
-let city = 'Los Angeles';
-
-const weatherInfo = `http://api.wunderground.com/api/${apiConfig.apiKey}/conditions/hourly/forecast10day/q/${state}/${city}.json`
+// const weatherInfo = `http://api.wunderground.com/api/${apiConfig.apiKey}/conditions/hourly/forecast10day/q/${state}/${city}.json`
 
 class App extends Component {
   constructor(props) {
@@ -18,21 +15,41 @@ class App extends Component {
     
   this.state = {
     weatherCards: [],
-    isLoaded: false
+    isLoaded: false,
+    location: 'autoip'
   }  
 }
 
 componentDidMount(){
-  fetch(weatherInfo, {method: 'GET', timeout: 2000})
-  .then(data => data.json())
-  .then(data => {this.setState({
-    isLoaded: true,
-    weatherCards: data
-  })})
-  .catch(error => {
-    console.log(error)
-  })
+  if(this.state.value === null){
+    this.fetchApi('autoip')
+  } else {
+    this.fetchApi(this.state.location)
+  }
 }
+
+//If no location is provided then we use auto ip address location else use location typed in
+
+fetchApi(location) {
+  fetch(`http://api.wunderground.com/api/${apiConfig.apiKey}/conditions/hourly/forecast10day/q/${this.state.location}.json`)
+    .then(data => data.json())
+    // console.log(data.json())
+    .then(data => {this.setState({
+     isLoaded: true,
+     weatherCards: data,
+     location: location
+    })})
+    .catch(error => {
+      console.log(error)
+    })
+}
+
+  getLocation = (location) => {
+    this.setState({
+      location: location
+    })
+    this.fetchApi(location)
+  }
 
 
   render() {
@@ -43,7 +60,7 @@ componentDidMount(){
         console.log("RENDER: ", typeof(this.state.weatherCards))
       return (
         <div className="App">
-        <Header />
+        <Header getLocation={this.getLocation}/>
         <CurrentWeatherCard 
         weather={this.state.weatherCards} />
        <SevenHourCard 
