@@ -7,8 +7,10 @@ import CurrentWeatherCard from './CurrentWeatherCard';
 import TenDayCard from './TenDayCard';
 import apiConfig from './APIkey.js'
 
+let state = 'CA';
+let city = 'Los Angeles';
 
-const weatherInfo = `http://api.wunderground.com/api/${apiConfig.apiKey}/conditions/hourly/forecast10day/q/CO/Denver.json`
+const weatherInfo = `http://api.wunderground.com/api/${apiConfig.apiKey}/conditions/hourly/forecast10day/q/${state}/${city}.json`
 
 class App extends Component {
   constructor(props) {
