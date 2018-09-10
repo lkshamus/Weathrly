@@ -21,14 +21,25 @@ class App extends Component {
 }
 
 componentDidMount(){
-  if(this.state.value === null){
-    this.fetchApi('autoip')
-  } else {
+  // this.getFromLocalStorage()
+  if(localStorage.getItem(this.state.location)){
     this.fetchApi(this.state.location)
+  } else {
+    this.fetchApi('autoip')
   }
 }
 
-//If no location is provided then we use auto ip address location else use location typed in
+updateLocalStorage = () => {
+    localStorage.setItem(this.state.location, JSON.stringify(this.state.location))
+  }
+
+  getFromLocalStorage = () => {
+    const currentLocation = localStorage.getItem(this.state.location)
+
+    if (currentLocation) {
+      this.setState({ currentLocation: JSON.parse(currentLocation) })
+    }
+  }
 
 fetchApi(location) {
   fetch(`http://api.wunderground.com/api/${apiConfig.apiKey}/conditions/hourly/forecast10day/q/${this.state.location}.json`)
@@ -49,6 +60,7 @@ fetchApi(location) {
       location: location
     })
     this.fetchApi(location)
+    this.updateLocalStorage()
   }
 
 
