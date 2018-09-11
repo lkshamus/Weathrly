@@ -23,8 +23,6 @@ export default class Card extends Component {
    let currentDay = this.getCurrentDay()
    let weatherData = this.props.weather.hourly_forecast
    let hourlyData = []
-   console.log("weatherData: ", weatherData)
-   console.log("weatherData: ", weatherData.hourly_forecast)
    Object.values(weatherData).map(data => {
   
   

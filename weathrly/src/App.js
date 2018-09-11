@@ -20,17 +20,28 @@ class App extends Component {
   }  
 }
 
-componentDidMount(){
+componentDidMount = () => {
   // this.getFromLocalStorage()
-  if(localStorage.getItem(this.state.location)){
-    this.fetchApi(this.state.location)
+  let storedLocation = JSON.parse(localStorage.getItem('weathrly', this.state.location))
+  let autoLocation = 'autoip'
+  if(this.state.location === '') {
+    this.fetchApi(this.state.location = storedLocation)
   } else {
-    this.fetchApi('autoip')
+    this.fetchApi(this.state.location = autoLocation)
+    console.log(storedLocation)
   }
 }
 
+componentWillMount(){
+  let storedLocation = JSON.parse(localStorage.getItem('weathrly', this.state.location))
+    if(localStorage.getItem('weathrly', this.state.location)){
+    this.fetchApi('weathrly', this.state.location)
+  }
+  console.log('weathrly', this.state.location)
+}
+
 updateLocalStorage = () => {
-    localStorage.setItem(this.state.location, JSON.stringify(this.state.location))
+    localStorage.setItem('weathrly', JSON.stringify(this.state.location))
   }
 
   getFromLocalStorage = () => {
@@ -39,6 +50,7 @@ updateLocalStorage = () => {
     if (currentLocation) {
       this.setState({ currentLocation: JSON.parse(currentLocation) })
     }
+    console.log(currentLocation)
   }
 
 fetchApi(location) {
@@ -57,7 +69,7 @@ fetchApi(location) {
 
   getLocation = (location) => {
     this.setState({
-      location: location
+      location: location 
     })
     this.fetchApi(location)
     this.updateLocalStorage()
@@ -65,11 +77,11 @@ fetchApi(location) {
 
 
   render() {
+    // componentDidMount();
     let {isLoaded, weatherInfo} = this.state
       if(!isLoaded){
         return <div> Loading.... </div>
       } else { 
-        console.log("RENDER: ", typeof(this.state.weatherCards))
       return (
         <div className="App">
         <Header getLocation={this.getLocation}/>

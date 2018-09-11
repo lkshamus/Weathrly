@@ -40,7 +40,7 @@ render() {
             this.setState({ location: event.target.value})}} />
           <button className='search-button' onClick={(event) => {
             event.preventDefault();
-            this.props.getLocation(this.state.location), console.log('hi', this.state.location)}
+            this.props.getLocation(this.state.location)}
 
           }>Find Me</button>
       </form>
