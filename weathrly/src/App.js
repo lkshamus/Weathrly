@@ -29,8 +29,8 @@ componentDidMount = () => {
   }
 }
 
-updateLocalStorage = () => {
-    localStorage.setItem('weathrly', JSON.stringify(this.state.location))
+updateLocalStorage = (location) => {
+    localStorage.setItem('weathrly', JSON.stringify(location))
   }
 
 fetchApi(location) {
@@ -51,7 +51,7 @@ fetchApi(location) {
   getLocation = (location) => {
 
     this.fetchApi(location)
-    this.updateLocalStorage()
+    this.updateLocalStorage(location)
   }
 
 
