@@ -49,20 +49,19 @@ fetchApi(location) {
 }
 
   getLocation = (location) => {
-
     this.fetchApi(location)
     this.updateLocalStorage(location)
   }
 
-
   render() {
-    let {isLoaded, weatherInfo} = this.state
+    let {isLoaded} = this.state
       if(!isLoaded){
         return <div> Loading.... </div>
       } else { 
       return (
         <div className="App">
-        <Header getLocation={this.getLocation}/>
+        <Header weather={this.state.weatherCards} 
+        getLocation={this.getLocation}/>
         <CurrentWeatherCard 
         weather={this.state.weatherCards} />
        <SevenHourCard 
