@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
-import Trie from '@lkshamus/completeme'
-console.log(Trie)
+import Trie from '@lkshamus/completeme';
+import { cityData } from './storedCities';
 export default class Header extends Component {
   constructor(props) {
     super(props)
     this.state= {
-      location: ''
+      location: '',
+      trie: null,
+      suggests: null
     };
+}
+
+componentWillMount() {
+  let trie = new Trie();
+  console.log(trie)
+  trie.populate(cityData.data)
+  this.setState({trie: trie})
+  console.log(this.state.trie)
+} 
+
+suggestCity = (string) => {
+  let suggests = this.state.trie.suggest(string).slice(0, 10);
+  this.setState({suggests: suggests})
 }
 
 render() {
@@ -20,13 +35,23 @@ render() {
           placeholder="Show me the weather in... city, zip, or place" 
           
            value={this.state.location} 
+           list='data'
            onChange={(event) => {
         
+            this.suggestCity(event.target.value)
             this.setState(
               { location: event.target.value})
             }
           }
            />
+          <datalist id="data">
+          {
+            this.state.suggests &&
+            this.state.suggests.map((location, index) =>
+            <option value={location} key={index}/>
+          )}
+        </datalist>
+
           <button className='search-button' onClick={(event) => {
             event.preventDefault();
 

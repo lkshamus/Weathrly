@@ -5,7 +5,8 @@ import './App.css';
 import SevenHourCard from './SevenHourCard.js';
 import CurrentWeatherCard from './CurrentWeatherCard';
 import TenDayCard from './TenDayCard';
-import apiConfig from './APIkey.js'
+import apiConfig from './APIkey.js';
+import Trie from '@lkshamus/completeme';
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends Component {
 }
 
 componentDidMount = () => {
+  let trie = new Trie;
   let storedLocation = JSON.parse(localStorage.getItem('weathrly', this.state.location))
   let autoLocation = 'autoip'
     if(storedLocation){
@@ -26,6 +28,12 @@ componentDidMount = () => {
   } else {
     this.fetchApi(autoLocation)
     console.log(storedLocation)
+  }
+}
+
+populate(words) {
+  for (let word in words) {
+    this.insert(words[word]);
   }
 }
 
