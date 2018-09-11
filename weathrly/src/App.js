@@ -16,7 +16,7 @@ class App extends Component {
   this.state = {
     weatherCards: [],
     isLoaded: false,
-    location: 'autoip'
+    location: ''
   }  
 }
 
@@ -24,8 +24,8 @@ componentDidMount = () => {
   // this.getFromLocalStorage()
   let storedLocation = JSON.parse(localStorage.getItem('weathrly', this.state.location))
   let autoLocation = 'autoip'
-  if(this.state.location === '') {
-    this.fetchApi(this.state.location = storedLocation)
+    if(storedLocation){
+    this.getLocation(this.state.location = storedLocation)
   } else {
     this.fetchApi(this.state.location = autoLocation)
     console.log(storedLocation)
