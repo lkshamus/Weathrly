@@ -5,25 +5,15 @@ export default class Header extends Component {
   constructor(props) {
     super(props)
     this.state= {
-      location: undefined
+      location: ''
     };
-    // this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
 }
-
-  // handleChange(event) {
-  //   this.setState({ location: event.target.value});
-  // }
 
   handleSubmit(event) {
     console.log('A city was submitted: ' + this.state.value);
     event.preventDefault();
 
   }
-
-// if result ===
-// this.props.weather.current_observation.display_location.city 
-// then return data on that city by populating the state and city in api url
 
 
 render() {
