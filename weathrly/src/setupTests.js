@@ -18,9 +18,6 @@ getItem(key) {
   clear() {
     this.store = {}
   }
-  // updateLocalStorage(location) {
-  //    this.store[location] = string
-  // }
 }
 
 global.localStorage = new LocalStorage;
