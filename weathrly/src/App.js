@@ -27,7 +27,6 @@ componentDidMount = () => {
     this.getLocation(storedLocation)
   } else {
     this.fetchApi(autoLocation)
-    console.log(storedLocation)
   }
 }
 
