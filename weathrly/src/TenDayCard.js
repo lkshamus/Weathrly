@@ -22,8 +22,9 @@ export default class TenDayCard extends Card {
     let render_tenDay = []
     for(let i=0; i < tenDayData.length; i++) {
       render_tenDay.push((
-    <div> 
-      <h1>{tenDayData[i].date.weekday}<img src={tenDayData[i].icon_url} alt='weather'/></h1>
+    <div className='ten-day'> 
+      <h1>{tenDayData[i].date.weekday}</h1>
+      <img className='icon-ten-day'src={tenDayData[i].icon_url} alt='weather'/>
       <p>High {tenDayData[i].high.fahrenheit}</p>
       <p>Low {tenDayData[i].low.fahrenheit}</p>
     </div>

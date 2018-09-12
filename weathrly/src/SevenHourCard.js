@@ -15,8 +15,8 @@ render() {
       <ul className='weather-card'>
       <li className='weather-description'>{this.props.weather.current_observation.display_location.city} </li>
       <li className='weather-description'> {hourlyData[i].FCTTIME.civil} </li>
-      <li className='weather-description'> {hourlyData[i].condition} 
-        <img src={hourlyData[i].icon_url} alt='weather' />
+      <li className='weather-description-card'> {hourlyData[i].condition} 
+        <img className='seven-day-logo'src={hourlyData[i].icon_url} alt='weather' />
       </li>
       <li className='weather-description'> {hourlyData[i].temp.english}°F </li>
       <li className='weather-description'> {hourlyData[i].wspd.english}mph</li>
