@@ -67,18 +67,17 @@ it('renders without crashing', () => {
 
 it('should retrieve data from local storage on mount', () =>{
 
-const KEY = 'weathrly',
-VALUE = 'Denver, CO'
+// const KEY = 'weathrly',
+// VALUE = 'Denver, CO'
 
-  const location = [
-    {'weathrly': 'Denver, CO'},
-  ]
+  const location = "Denver, CO";
+  
 
-  localStorage.setItem(KEY, VALUE)
+  wrapper.instance().updateLocalStorage(location)
 
-  wrapper = mount(<App />);
+  
 
-  expect(wrapper.state().location).toEqual(location);
+  expect(localStorage).toEqual({ "weathrly": "\"Denver, CO\""});
 
   console.log('this is the location', location)
 })
