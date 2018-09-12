@@ -20,4 +20,15 @@ getItem(key) {
   }
 }
 
+global.fetch = () => {
+  const promise = {
+    then() {
+      return promise;
+    },
+    catch() {}
+  }
+
+  return promise
+}
+
 global.localStorage = new LocalStorage;

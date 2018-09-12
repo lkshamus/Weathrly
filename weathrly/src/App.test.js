@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme';
 import App from './App';
-require('jest-localstorage-mock')
+require('jest-localstorage-mock');
 // import CurrentWeatherCard from './CurrentWeatherCard'
 
 
@@ -39,11 +39,10 @@ require('jest-localstorage-mock')
 
 describe('App', () => {
 
-  let wrapper 
+  let wrapper; 
 
   beforeEach(() => {
     wrapper = shallow(<App />)
-    // localStorage.__STORE__ = {};
   })
 
 it('should exist', () => {
@@ -51,12 +50,12 @@ it('should exist', () => {
 })
 
 it('should render the Header, CurrentWeatherCard, SevenHourCard, and TenDayCard components', () => {
-    const wrapper = shallow(<App />)
+    wrapper.setState( {location: 'Denver, CO'} )
 
-    expect(wrapper.find('Header').length).toEqual(1)
-    expect(wrapper.find('CurrentWeatherCard').length).toEqual(1)
-     expect(wrapper.find('SevenHourCard').length).toEqual(1)
-      expect(wrapper.find('TenDayCard').length).toEqual(1)
+    expect(wrapper.find('Header').length).toEqual(1);
+    expect(wrapper.find('CurrentWeatherCard').length).toEqual(1);
+    expect(wrapper.find('SevenHourCard').length).toEqual(1);
+    expect(wrapper.find('TenDayCard').length).toEqual(1);
   })
 
 it('renders without crashing', () => {
@@ -83,4 +82,6 @@ VALUE = 'Denver, CO'
 
   console.log('this is the location', location)
 })
+
+
 })
