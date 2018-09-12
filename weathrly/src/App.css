@@ -1,5 +1,10 @@
+* {
+  margin: 0;
+}
+
 body{
-  background: url(https://source.unsplash.com/collection/1166960/1600x900);
+  background: grey;
+  /*background: url(https://source.unsplash.com/collection/1166960/1600x900);*/
   size: fixed;
 }
 
@@ -49,12 +54,41 @@ li {
 }
 
 .weather-description{
-  margin: 10px;
+  margin: 20px;
 }
 
 .header {
   display: grid;
   background-color: #29648A;
+
+}
+
+.ten-day {
+  border: solid 1px;
+  width: 200px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.seven-day-logo, .image-logo-current {
+  position: relative;
+  top: 15px;
+}
+
+.current-weather-city {
+  font-size: 60px;
+}
+
+.current-temp {
+  font-size: 100px;
+}
+.weather-description-card {
+  padding: 0 20px 0 20px;
+  position: relative;
+  bottom: 15px;
+}
+
+.icon-ten-day {
 
 }
 

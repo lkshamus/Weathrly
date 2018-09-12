@@ -30,12 +30,13 @@ export default class CurrentWeatherCard extends Card {
         render_data.push((
         <div className='current-weather'>
         <h1 className='current-weather-city'>{this.props.weather.current_observation.display_location.city} </h1>
-        <p className='current-time'> Current Weather</p>
-        <p className='current-info'> {this.props.weather.forecast.txt_forecast.forecastday[0].fcttext} </p>
-        <p className='current-condition'> {hourlyData[i].condition} 
-          <img src={hourlyData[i].icon_url} alt='weather' />
+           <p className='current-condition'> {hourlyData[i].condition} 
+          <img className='image-logo-current'src={hourlyData[i].icon_url} alt='weather' />
         </p>
-        <p className='current-temp'>Current Temperature {hourlyData[i].temp.english}°F</p>
+         <h1 className='current-temp'>{hourlyData[i].temp.english}°F</h1>
+        <p className='current-info'> {this.props.weather.forecast.txt_forecast.forecastday[0].fcttext} </p>
+     
+       
 
         <p className='high'>High {currData[0].high.fahrenheit}°F</p>
         <p className='low'>Low {currData[0].low.fahrenheit}°F </p>
