@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header.js';
 import './App.css';
-// import { data } from './API.js';
 import SevenHourCard from './SevenHourCard.js';
 import CurrentWeatherCard from './CurrentWeatherCard';
 import TenDayCard from './TenDayCard';

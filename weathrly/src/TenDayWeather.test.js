@@ -28,4 +28,18 @@ describe('TenDayCard', () => {
     expect(weatherCards.forecast.simpleforecast.forecastday[0].low.fahrenheit).toEqual('32')
   })
 
+    it('should render an image for weather for specific day', () => {
+  expect(wrapper.find('img').length).toBe(10)
+})
+
+  it('should render an h1 tag for day of week', () => {
+  expect(wrapper.find('h1').length).toBe(10)
+})
+
+  it('should render p tag for high and low temperatures', () => {
+  expect(wrapper.find('p').length).toBe(20)
+})
+
+
+
 })
