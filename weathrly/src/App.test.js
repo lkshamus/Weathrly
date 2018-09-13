@@ -22,7 +22,6 @@ describe('App', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-
   it('should retrieve data from local storage on mount', () =>{
 
     const location = "Denver, CO";
@@ -30,6 +29,13 @@ describe('App', () => {
     wrapper.instance().updateLocalStorage(location);
 
     expect(localStorage).toEqual({ "weathrly": "\"Denver, CO\""});
+  });
+
+  it('should only load if it has state', () => {
+
+  });
+
+  it('should display header' () => {
 
   });
 });
