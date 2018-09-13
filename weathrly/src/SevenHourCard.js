@@ -9,7 +9,7 @@ export default class SevenHourCard extends Component {
 
   getCurrentHour() {
     let dateObj = new Date();
-    return dateObj.getHours();  
+    return dateObj.getHours();
   }
 
   getCurrentDay() {
@@ -23,9 +23,7 @@ export default class SevenHourCard extends Component {
     let weatherData = this.props.weather.hourly_forecast;
     let hourlyData = [];
     Object.values(weatherData).map(data => {
-      if ( (data.FCTTIME.hour >= currentHour) && data.FCTTIME.mday == currentDay ){
-        hourlyData.push(data);
-      }
+      hourlyData.push(data);
     });
     return hourlyData;
   }
@@ -47,7 +45,6 @@ export default class SevenHourCard extends Component {
       ));
     }
     return render_data.slice(0, 7);
-
   }
 }
 

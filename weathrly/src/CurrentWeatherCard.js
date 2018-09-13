@@ -18,15 +18,14 @@ export default class CurrentWeatherCard extends Component {
   }
 
   getAPIData() {
+
     let currentHour = this.getCurrentHour();
     let currentDay = this.getCurrentDay();
     let weatherData = this.props.weather.hourly_forecast;
     let hourlyData = [];
     Object.values(weatherData).map(data => {
-      if ( (data.FCTTIME.hour >= currentHour) && data.FCTTIME.mday == currentDay ){
-        hourlyData.push(data);
-      }
-    });
+      hourlyData.push(data);
+    })
     return hourlyData;
   }
 
@@ -37,9 +36,7 @@ export default class CurrentWeatherCard extends Component {
     let currData = [];
 
     currWeatherData.map(data => {
-      if(data.date.day == currDay) {
-        currData.push(data);
-      }
+      currData.push(data);
     });
     return currData;
   }
