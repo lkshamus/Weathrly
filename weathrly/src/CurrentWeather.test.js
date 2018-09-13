@@ -44,6 +44,6 @@ describe('CurrentWeatherCard', () => {
 
   it('should get the current discription for the current city', () => {
     wrapper.instance().getSimpleForecast();
-    expect(weatherCards.forecast.txt_forecast.forecastday[0].fcttext).toEqual('Sun and clouds mixed. High 51F. Winds NE at 10 to 15 mph.')
+    expect(weatherCards.forecast.txt_forecast.forecastday[0].fcttext).toEqual('Sun and clouds mixed. High 51F. Winds NE at 10 to 15 mph.');
   });
 });
