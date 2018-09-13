@@ -1,2 +1,2 @@
 # Weathrly
-<img src= 'public/wireframe.jpg'>
+<img src='public/wireframe.jpg'>
