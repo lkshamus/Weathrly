@@ -40,7 +40,6 @@ describe('App', () => {
   it('should render on the page', () => {
     expect(wrapper.find('div').length).toBe(1);
   });
-  
 });
 
 
