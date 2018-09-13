@@ -1001,7 +1001,7 @@ const cityData = {
     "Beloit, WI",
     "Panama City, FL"
   ]
-}
+};
 export {
   cityData
-}
+};

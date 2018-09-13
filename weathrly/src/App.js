@@ -9,23 +9,22 @@ import Trie from '@lkshamus/completeme';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     
-  this.state = {
-    weatherCards: [],
-    isLoaded: false,
-    location: ''
-  }  
-}
+    this.state = {
+      weatherCards: [],
+      isLoaded: false,
+      location: ''
+    };  
+  }
 
 componentDidMount = () => {
-  let trie = new Trie;
-  let storedLocation = JSON.parse(localStorage.getItem('weathrly', this.state.location))
-  let autoLocation = 'autoip'
-    if(storedLocation){
-    this.getLocation(storedLocation)
+  let storedLocation = JSON.parse(localStorage.getItem('weathrly', this.state.location));
+  let autoLocation = 'autoip';
+  if(storedLocation){
+    this.getLocation(storedLocation);
   } else {
-    this.fetchApi(autoLocation)
+    this.fetchApi(autoLocation);
   }
 }
 
@@ -36,8 +35,8 @@ populate(words) {
 }
 
 updateLocalStorage = (location) => {
-    localStorage.setItem('weathrly', JSON.stringify(location))
-  }
+  localStorage.setItem('weathrly', JSON.stringify(location));
+}
 
 fetchApi(location) {
   fetch(`http://api.wunderground.com/api/${apiConfig.apiKey}/conditions/hourly/forecast10day/q/${location}.json`)
@@ -47,36 +46,36 @@ fetchApi(location) {
         isLoaded: true,
         weatherCards: data,
         location: location
-      })
+      });
     })
     .catch(error => {
-      console.log(error)
-    })
+      console.log(error);
+    });
 }
 
   getLocation = (location) => {
-    this.fetchApi(location)
-    this.updateLocalStorage(location)
+    this.fetchApi(location);
+    this.updateLocalStorage(location);
   }
 
   render() {
-    let {isLoaded} = this.state
-      if(!isLoaded){
-        return <div> Loading.... </div>
-      } else { 
+    let {isLoaded} = this.state;
+    if(!isLoaded){
+      return <div> Loading.... </div>;
+    } else { 
       return (
         <div className="App">
-        <Header weather={this.state.weatherCards} 
-        getLocation={this.getLocation}/>
-        <CurrentWeatherCard 
-        weather={this.state.weatherCards} />
-       <SevenHourCard 
-       weather={this.state.weatherCards}
-       selectedCardCount = {this.state.senlectedCardCount}/>
-       <TenDayCard 
-        weather={this.state.weatherCards} />
-      </div>
-      )
+          <Header weather={this.state.weatherCards} 
+            getLocation={this.getLocation}/>
+          <CurrentWeatherCard 
+            weather={this.state.weatherCards} />
+          <SevenHourCard 
+            weather={this.state.weatherCards}
+            selectedCardCount = {this.state.senlectedCardCount}/>
+          <TenDayCard 
+            weather={this.state.weatherCards} />
+        </div>
+      );
     }
   }
 }
