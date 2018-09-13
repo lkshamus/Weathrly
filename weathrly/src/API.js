@@ -2865,4 +2865,4 @@ const data = {
 
 export {
   data
-}
+};
