@@ -34,6 +34,9 @@ li {
   display: flex;
 }
 
+input {
+  outline: none;
+}
 .search-bar {
   justify-self: start;
   width: 300px;
@@ -44,6 +47,12 @@ li {
   align-self: start;
   height: 37px;
   width: 90px;
+  outline: none;
+  border: none;
+}
+
+.search-button:hover {
+  background-color: #eceef4;
 }
 
 .weather-card {
@@ -72,7 +81,8 @@ li {
 
 .header {
   display: grid;
-  background-color: #29648A;
+  background-color: #bac7e1;
+  opacity: 0.9;
 
 }
 
@@ -102,10 +112,66 @@ li {
   position: relative;
   bottom: 15px;
 }
+@media screen and (max-width:745px){
 
-.icon-ten-day {
+.high,
+.current-temp,
+.low {
+  margin: auto;
+}
 
 }
+
+@media screen and (max-width:550px){
+.weather-description {
+  margin: 10px;
+}
+.weather-description-card {
+  position: relative;
+  bottom: 25px;
+}
+}
+
+@media screen and (max-width:460px){
+.weather-description {
+  margin: 5px;
+}
+.weather-description-card {
+  bottom: 30px;
+}
+}
+
+@media screen and (max-width:445px){
+
+.high,
+.current-temp,
+.low {
+  display: block;
+}
+
+.current-condition{
+  margin: 20px;
+}
+
+.search-bar {
+  width: 200px;
+}
+.current-temp {
+  font-size: 80px;
+}
+
+.current-weather-city {
+  font-size: 50px;
+}
+
+.weather-card {
+  font-size: 12px
+}
+.weather-description, .weather-description-card {
+  margin: 5px;
+}
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

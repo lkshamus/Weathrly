@@ -28,7 +28,6 @@ render() {
     return (
       <div className='header'>
       <h1 className='title'>Weathrly
-      <img src={"/public/thermometer.svg"} />
       </h1>
       <form className='search-form'>
         <input className='search-bar' 
