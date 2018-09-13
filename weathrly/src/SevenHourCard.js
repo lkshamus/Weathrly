@@ -1,11 +1,37 @@
 import React, { Component } from 'react';
 import Card from './Card.js'
 
-export default class SevenHourCard extends Card {
+export default class SevenHourCard extends Component {
 
   constructor() {
     super()
 } 
+
+  getCurrentHour() {
+    let dateObj = new Date()
+    return dateObj.getHours()
+  }
+
+  getCurrentDay() {
+    let dayObj = new Date()
+    return dayObj.getDate()
+  }
+
+  getAPIData() {
+
+   let currentHour = this.getCurrentHour()
+   let currentDay = this.getCurrentDay()
+   let weatherData = this.props.weather.hourly_forecast
+   let hourlyData = []
+   Object.values(weatherData).map(data => {
+  
+  
+    if ( (data.FCTTIME.hour >= currentHour) && data.FCTTIME.mday == currentDay ){
+      hourlyData.push(data)
+    }
+   })
+   return hourlyData
+  }
  
 render() {
     let hourlyData = this.getAPIData()
