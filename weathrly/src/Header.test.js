@@ -31,4 +31,23 @@ describe('Header', () => {
   it('should render a submit button', () => {
     expect(wrapper.find('button').length).toBe(1);
   });
+
+  it('should have an empty input field', () => {
+    expect(wrapper.state().input).toEqual(undefined);
+  });
+
+  it('should change the state after enters a location', () => {
+    let searchBar = wrapper.find('input');
+    let event = {
+      target: {
+        value: 'location'
+      }
+    }
+    searchBar.simulate('change', event);
+    expect(wrapper.state().searchBar).toEqual();
+  });
+
+  it('should display suggestions based on what the user types in', () => {
+
+  })
 });
