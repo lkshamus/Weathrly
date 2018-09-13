@@ -31,13 +31,16 @@ describe('App', () => {
     expect(localStorage).toEqual({ "weathrly": "\"Denver, CO\""});
   });
 
-  it('should only load if it has state', () => {
-
+  it('should have a default state', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    expect(wrapper.state()).toEqual({"isLoaded": false, "location": "", "weatherCards": []});
   });
 
-  it('should display header' () => {
-
+  it('should render on the page', () => {
+    expect(wrapper.find('div').length).toBe(1);
   });
+  
 });
 
 
