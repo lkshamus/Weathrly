@@ -47,7 +47,7 @@ describe('Header', () => {
     expect(wrapper.state().searchBar).toEqual();
   });
 
-  it('should display suggestions based on what the user types in', () => {
+  // it('should display suggestions based on what the user types in', () => {
 
-  })
+  // })
 });
