@@ -2,7 +2,7 @@
 
 ## Description
 
-Weathrly is a web application that allows users to display the current weather in the location the user searches for. The default location will be the current location of the user. Weather data provided by Wunderland API and search functionality utlizied with Prefix Trie we created and published as NPM module which can be found [here](https://www.npmjs.com/package/@lkshamus/completeme)
+Weathrly is a web application that allows users to display the current weather in the location the user searches for. The default location will be the current location of the user. Weather data provided by Wunderland API and search functionality utlizied with Prefix Trie we created and published as an NPM module which can be found [here](https://www.npmjs.com/package/@lkshamus/completeme)
 
 ## Installation
 
